@@ -546,10 +546,15 @@ footer .copyright{
 }
 
 /* Start Media Query */
-@media (max-width:799px){
+@media (max-width:480px) and (max-width:799px) {
 
     .section-pl{
-        padding: 40px 40px;
+        /* padding: 40px 40px; */
+        padding: 20px;
+    }
+
+    #header{
+        padding: 10px 30px;
     }
 
     #navbar {
@@ -602,35 +607,43 @@ footer .copyright{
         display: none;
     }
 
-    #hero {
-        height: 90vh;
-        padding: 0 80px;
-        background-position: top 30% right 30%;
+    h1{
+        font-size: 38px;
     }
 
-    #feature {
-        justify-content: center;
+    h2{
+        font-size: 32px;
     }
 
-    #feature .fe-box {
-        margin: 15px 15px;
+    #hero{
+        padding: 0px 20px;
+        background-position: 65%;
+    }
+    #feature{
+        justify-content: space-between;
+    }
+    #feauture .fe-box{
+        width: 155px;
+        margin: 0 0 15px 0;
+    }
+    #product1 .pro{
+        width: 100%;
     }
 
     #product1 .pro-container {
         justify-content: center;
     }
-
-    #product1 .pro {
-        margin: 15px;
-    }
-
     .sm-banner .banner-box {
         min-width: 100%;
         height: 30vh;
     }
 
+    .sm-banner .banner-box2{
+        margin-top: 20px;
+    }
+
     .banner3 {
-        padding: 0 40px;
+        padding: 0 20px;
     }
 
     .banner3 .banner-box {
@@ -638,17 +651,19 @@ footer .copyright{
         height: 30vh;
     }
 
+    #newsletter{
+        padding: 40px 20px;
+    }
     #newsletter .form{
         width: 100%;
     }
-
-    #newsletter input{
-        width: 100%;
+    footer .copyright{
+        text-align: start;
     }
 
 }
 
-@media (max-width:477px){
+@media (max-width:300px){
     .section-pl{
         padding: 20px;
     }
@@ -683,11 +698,11 @@ footer .copyright{
         height: 50vh;
 
     }
-    #sm-banner .banner-box{
+    .sm-banner .banner-box{
         height: 60vh;
 
     }
-    #sm-banner .banner-box2{
+    .sm-banner .banner-box2{
         margin-top: 20px;
 
     }
