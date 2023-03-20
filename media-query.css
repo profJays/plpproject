@@ -190,4 +190,12 @@
             width: 100%;
         }
 
+    /* Contact Page Mobile */
+    #form-details{
+        padding: 40px;
+    }
+    #form-details form{
+        width: 50%;
+    }
+
 }
