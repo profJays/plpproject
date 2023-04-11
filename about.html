@@ -18,7 +18,10 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a class="active" href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class="fa fa-bag-shopping"></i></a></li>
+                <span id="dashboard-link"></span>
+                <span id="login-link"></span>   
+                <span id="logout-link"></span>
+                <li id="lg-bag"><a class="active" href="cart.html"><i class="fa fa-bag-shopping"></i></a></li>
                 <a href="#" id="close"><i  class="fa fa-times"></i></a>
             </ul>
         </div>
@@ -45,15 +48,15 @@
                 caused largely in part by lack of access and in-affordability.</abbr>
             <br><br>
 
-            <!-- <marquee bgcolor="#ccc" loop="-1" behavior="alternate" scrolldelay="68" scrollamount="-5" width="100%">Africa faces a huge digital skills gap that dilutes economic opportunities and development 
-                caused largely in part by lack of access and in-affordability.</marquee> -->
+            <marquee bgcolor="#f8f8f8" loop="-1" behavior="alternate" scrolldelay="68" scrollamount="-5" width="100%">Africa faces a huge digital skills gap that dilutes economic opportunities and development 
+                caused largely in part by lack of access and in-affordability.</marquee>
 
-            <div class="scroll-text-container">
+            <!-- <div class="scroll-text-container">
                 <div class="scroll-text">
                     Africa faces a huge digital skills gap that dilutes economic opportunities and development 
                 caused largely in part by lack of access and in-affordability.
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -151,6 +154,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
+    <script type="module" defer src="./js/checkuser.js"></script>
+    <script type="module" src="./js/logout.js"></script>
 </body>
 </html>

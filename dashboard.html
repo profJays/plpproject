@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>PLP Ecom | Contact</title>
+    <title>PLP Ecom | Dashboard</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/all.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 </head>
 <body>
     <section id="header">
@@ -17,7 +19,7 @@
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a class="active" href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <span id="dashboard-link"></span>
                 <span id="login-link"></span>   
                 <span id="logout-link"></span>
@@ -31,74 +33,46 @@
         </div>
     </section>
 
-    <section id="page-header" class="contact-header">
-        <h2>#letsTalk</h2>
-        <p>Leave a Message. We Love to Hear From You</p>
+    <section id="page-header" class="dash-header">
+        <h2>#dashBoard</h2>
+        <p>You are special to us</p>
     </section>
 
-    <section id="contact-details" class="section-pl">
-        <div class="details">
-            <span>GET IN TOUCH</span>
-            <h2>Visit one of our agency locations or contact us today</h2>
-            <h3>Head Office</h3>
-            <div>
-                <li>
-                    <i class="fa fa-map"></i>
-                    <p>Vanac Estate Rayfield Jos, Plateau State, Nigeria</p>
-                </li>
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <p>officialjosephjohn@gmail.com</p>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <p>+2348065013009</p>
-                </li>
-                <li>
-                    <i class="fa fa-clock"></i>
-                    <p>Monday to Saturday | 9:00 to 16pm</p>
-                </li>
+    <section id="dash-card-add" class="section-pl">
+        <div id="dash-subtotal-container">
+            <h3>Dashboard Details</h3>
+            <div id="dash-subtotal">
+                <h4>Cart Totals</h4>
+                <table>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td>$ 335</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>$ 335</strong></td>
+                    </tr>
+                </table>
+                <button class="normal">Proceed to Checkout</button>
             </div>
         </div>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.86165863222!2d36.792769914739694!3d-1.2547261359464237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17c341815e9b%3A0x75dbfd0bd034f43b!2sPower%20Learn%20Project!5e0!3m2!1sen!2sng!4v1678974894322!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </section>
-
-    <section id="form-details">
-        <form action="">
-            <span>LEAVE A MESSAGE</span>
-            <h2>We love to hear from you</h2>
-            <input type="text" placeholder="Your Name">
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="Subject">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <button class="normal">Submit</button>
-        </form>
-        <div class="people">
+        <div id="search">
+            <h3>Search Products</h3>
             <div>
-                <img src="img/people/1.png" alt="">
-                <p><span>John Doe</span> Senior Marketing Manager <br>
-                Phone: +234 352 4343 242 <br>
-                Email: contact@josephjohn.ng</p>
-            </div>
-            <div>
-                <img src="img/people/2.png" alt="">
-                <p><span>William Smith</span> Senior Marketing Manager <br>
-                Phone: +234 352 4343 242 <br>
-                Email: contact@josephjohn.ng</p>
-            </div>
-            <div>
-                <img src="img/people/3.png" alt="">
-                <p><span>Emma Stone</span> Senior Marketing Manager <br>
-                Phone: +234 352 4343 242 <br>
-                Email: contact@josephjohn.ng</p>
-            </div>
-            <div>
-                <img src="img/people/2.png" alt="">
-                <p><span>Evans Stone</span> Senior Marketing Manager <br>
-                Phone: +234 352 4343 242 <br>
-                Email: contact@josephjohn.ng</p>
+                <div class="search-wrapper">
+                    <input type="text" placeholder="Search Here with Product Name" data-search>
+                </div>
+                <div class="user-cards" data-user-cards-container></div>
+                <template data-user-template>
+                    <div class="cards">
+                        <div class="header" data-header></div>
+                        <div class="body" data-body></div>
+                    </div>
+                </template>
             </div>
         </div>
     </section>
@@ -163,9 +137,12 @@
         </div>
     </footer>
 
+    <!-- JS  -->
     <script src="./js/script.js"></script>
-    <script type="module" src="./js/checkuser.js"></script>
+    <script src="./js/search.js" defer></script>
+    <script type="module" src="./js/restrict.js"></script>
     <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="./js/checkuser.js"></script>
 
 </body>
 </html>
