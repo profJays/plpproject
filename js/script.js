@@ -15,34 +15,69 @@ if (bar) {
     })
 }
 
-fetch('https://newsapi.org/v2/everything?q=Clothes&from=2023-06-11&sortBy=popularity&pageSize=10&page=1&apiKey=2e36620114594d3b9a5cdd14dab91e98')
-.then(response => {
-  // if (!response.ok) {
-  //   throw new Error('Network response was not ok');
-  // }
-  return response.json();
-})
-.then(data => {
-  data.articles.forEach(article => {
-    let now = new Date();
-    let dateNow= dateBuilder(now);
+// fetch('https://newsapi.org/v2/everything?q=Clothes&from=2023-06-11&sortBy=popularity&pageSize=10&page=1&apiKey=2e36620114594d3b9a5cdd14dab91e98')
+// .then(response => {
+//   if (!response.ok) {
+//     throw new Error('Network response was not ok');
+//   }
+//   return response.json();
+// })
+// .then(data => {
+//   data.articles.forEach(article => {
+//     let now = new Date();
+//     let dateNow= dateBuilder(now);
     
-    const markup = `
-    <div class="blog-box">
-        <div class="blog-img">
+//     const markup = `
+//     <div class="blog-box">
+//         <div class="blog-img">
+//             <img src="${article.urlToImage}" alt="">
+//         </div>
+//         <div class="blog-details">
+//             <h4>${article.title}</h4>
+//             <p>${article.description}</p>
+//             <a href="#">CONTINUE READING</a>
+//         </div>
+//         <h1>${dateNow}</h1>
+//     </div>
+//     `;
+//     document.querySelector('#blog').insertAdjacentHTML('beforeend', markup);
+//   });
+// })
+
+fetch('https://newsapi.org/v2/everything?q=Clothes&from=2023-06-11&sortBy=popularity&pageSize=7&page=1&apiKey=2e36620114594d3b9a5cdd14dab91e98')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    if (!data.articles || !Array.isArray(data.articles)) {
+      throw new Error('Invalid data structure');
+    }
+
+    data.articles.forEach(article => {
+      let now = new Date();
+      let dateNow = dateBuilder(now);
+
+      const markup = `
+        <div class="blog-box">
+          <div class="blog-img">
             <img src="${article.urlToImage}" alt="">
-        </div>
-        <div class="blog-details">
+          </div>
+          <div class="blog-details">
             <h4>${article.title}</h4>
             <p>${article.description}</p>
             <a href="#">CONTINUE READING</a>
+          </div>
+          <h1>${dateNow}</h1>
         </div>
-        <h1>${dateNow}</h1>
-    </div>
-    `;
-    document.querySelector('#blog').insertAdjacentHTML('beforeend', markup);
-  });
-})
+      `;
+      document.querySelector('#blog').insertAdjacentHTML('beforeend', markup);
+    });
+  })
+  .catch(error => console.log(error));
+
 
 function dateBuilder(d) {
     let months = [
