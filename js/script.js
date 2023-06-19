@@ -17,9 +17,9 @@ if (bar) {
 
 fetch('https://newsapi.org/v2/everything?q=Clothes&from=2023-06-11&sortBy=popularity&pageSize=10&page=1&apiKey=2e36620114594d3b9a5cdd14dab91e98')
 .then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
+  // if (!response.ok) {
+  //   throw new Error('Network response was not ok');
+  // }
   return response.json();
 })
 .then(data => {
